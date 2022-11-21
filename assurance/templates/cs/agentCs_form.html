@@ -34,7 +34,7 @@
                         {{ form1.password2 | as_crispy_field }}
                         {{ form.profession | as_crispy_field }}
                         {{ form.genre | as_crispy_field }}
-
+                        {{ form.cs | as_crispy_field }}
 
                         <br>
 
@@ -68,6 +68,7 @@
     form_fields[8].placeholder = 'Confirmer mot de passe.....';
     form_fields[9].placeholder = 'Profession.....';
     form_fields[10].placeholder = 'Genre.....';
+    form_fields[11].placeholder = 'Centre de soins.....';
 
     for (var field in form_fields){
         form_fields[field].className += ' form-control'

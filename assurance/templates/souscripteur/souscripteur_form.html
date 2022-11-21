@@ -38,7 +38,9 @@
                         {{ form.telephone | as_crispy_field }}
                         {{ form1.password1 | as_crispy_field }}
                         {{ form1.password2 | as_crispy_field }}
-
+                        {{ form.agent_assurance | as_crispy_field }}
+                        {{ form.assurance | as_crispy_field }}
+                        {{ form.police_assurance | as_crispy_field }}
 
                         <br>
 
@@ -71,6 +73,9 @@
     form_fields[7].placeholder = 'Téléphone.....';
     form_fields[8].placeholder = 'Mot de passe.....';
     form_fields[9].placeholder = 'Confirmer mot de passe.....';
+    form_fields[10].placeholder = 'Agent assurance.....';
+    form_fields[11].placeholder = 'Assurance.....';
+    form_fields[12].placeholder = 'Police assurance.....';
 
     for (var field in form_fields){
         form_fields[field].className += ' form-control'
