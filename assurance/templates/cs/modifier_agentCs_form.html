@@ -1,0 +1,73 @@
+{% extends 'cs/main_cs.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!DOCTYPE html>
+<header>
+
+</header>
+<body>
+
+<br><br>
+
+<div class="row">
+    <div class="container col-md-6 col-md-offset-3">
+        <div class="card bg-success text-white">
+            <div class="card card-header">
+                <div class="card-title" style="text-align: center; font-size: 25px;">
+                    FORMULAIRE AGENT CENTRE DE SOINS
+                </div>
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                        
+                        {% csrf_token %}
+
+                        {{ form.nom | as_crispy_field }}
+                        {{ form.prenom | as_crispy_field }}
+                        {{ form.adresse | as_crispy_field }}
+                        {{ form.ville | as_crispy_field }}
+                        {{ form.telephone | as_crispy_field }}
+                        {{ form.profession | as_crispy_field }}
+                        {{ form.genre | as_crispy_field }}
+
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    valider formulaire
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <a class="btn btn-danger btn-block" href="{% url 'agent_centre_soins' %}">Annuler</a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'Nom.....';
+    form_fields[2].placeholder = 'Prénom.....';
+    form_fields[3].placeholder = 'Adresse.....';
+    form_fields[4].placeholder = 'Téléphone.....';
+    form_fields[5].placeholder = 'Profession.....';
+    form_fields[6].placeholder = 'Genre.....';
+
+    for (var field in form_fields){
+        form_fields[field].className += ' form-control'
+    }
+
+</script>
+
+</body>
+</html>
+
+{% endblock %}

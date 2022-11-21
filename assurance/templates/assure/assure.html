@@ -1,0 +1,57 @@
+{% extends 'assure/main_assure.html' %}
+
+{% block content %}
+
+<br>
+
+<div class="row">
+
+    <div class="container col-md-5 col-md-offset-1">
+        <hr>
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>Nom utilisateur</th>
+                    <th>Email</th>
+                </tr>
+
+                {% comment %} {% for util in utilisateur %}
+                    <tr>
+                        <td>{{ util.username }}</td>
+                        <td>{{ util.email }}</dt>
+                    </tr>
+                {% endfor %} {% endcomment %}
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-7">
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-dark btn-sm btn-block" href="">Ordonnance</a>
+            <table class="table table-sm">
+                <tr>
+                
+                </tr>
+
+                
+
+               {% comment %}  {% for agent in agentsancfis %}
+                    <tr>
+                        <td>{{ agent.adresse }}</dt>
+                        <td>{{ agent.telephone }}</dt>
+                        <td>{{ agent.profession }}</dt>
+                        <td>{{ agent.ville }}</dt>
+                        <td>{{ agent.date_ajout }}</dt>
+                        <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_agent_sancfis' agent.id %}">Modifier</a></td>
+                        <td><a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer_agent_sancfis' agent.id %}">Supprimer</a></td>
+                    </tr>
+                {% endfor %} {% endcomment %}
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

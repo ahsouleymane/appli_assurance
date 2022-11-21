@@ -28,25 +28,6 @@ class Medicament(models.Model):
     def __str__(self):
         return self.libelleMedicament
 
-class Ordonnance(models.Model):
-    numeroOrdonnance=models.CharField(max_length=40)
-
-    examen = models.ForeignKey(Examen, on_delete=models.CASCADE)
-    medicament = models.ForeignKey(Medicament, on_delete=models.CASCADE)
-    quantite = models.ForeignKey(Quantite, on_delete=models.CASCADE)
-    forme = models.ForeignKey(Forme, on_delete=models.CASCADE)
-    moment = models.ForeignKey(Moment, on_delete=models.CASCADE)
-    periode = models.ForeignKey(Periode, on_delete=models.CASCADE)
-    nombre = models.ForeignKey(Nombre, on_delete=models.CASCADE)
-    unite = models.ForeignKey(Unite, on_delete=models.CASCADE)
-    frequence = models.ForeignKey(Frequence, on_delete=models.CASCADE)
-    voie = models.ForeignKey(voievoieAdministration, on_delete=models.CASCADE)
-    date_ajout = models.DateTimeField(auto_now_add=True)
-    date_modif = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.numeroOrdonnance
-
 class Ville(models.Model):
     pays=models.CharField(max_length=40)
     ville=models.CharField(max_length=40)
@@ -126,6 +107,25 @@ class voieAdministration(models.Model):
     def __str__(self):
         return self.voie
 
+class Ordonnance(models.Model):
+    numeroOrdonnance=models.CharField(max_length=40)
+
+    examen = models.ForeignKey(Examen, on_delete=models.CASCADE)
+    medicament = models.ForeignKey(Medicament, on_delete=models.CASCADE)
+    quantite = models.ForeignKey(Quantite, on_delete=models.CASCADE)
+    forme = models.ForeignKey(Forme, on_delete=models.CASCADE)
+    moment = models.ForeignKey(Moment, on_delete=models.CASCADE)
+    periode = models.ForeignKey(Periode, on_delete=models.CASCADE)
+    nombre = models.ForeignKey(Nombre, on_delete=models.CASCADE)
+    unite = models.ForeignKey(Unite, on_delete=models.CASCADE)
+    frequence = models.ForeignKey(Frequence, on_delete=models.CASCADE)
+    voie = models.ForeignKey(voieAdministration, on_delete=models.CASCADE)
+    date_ajout = models.DateTimeField(auto_now_add=True)
+    date_modif = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.numeroOrdonnance
+
 
 class AdminSysteme(models.Model):
 
@@ -176,6 +176,110 @@ class AgentSancfis(models.Model):
         except:
             self.utilisateur = User.objects.last()
         super().save(*args, **kwargs)
+
+class Assurance(models.Model):
+
+    utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
+
+    designation = models.CharField(max_length=40, null=True)
+    adresse = models.CharField(max_length=40, null=True)
+    telephone = models.CharField(max_length=15, null=True)
+    ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
+    longitude = models.FloatField(max_length=20, null=True)
+    latitude = models.FloatField(max_length=20, null=True)
+    date_ajout = models.DateTimeField(auto_now_add=True)
+    date_modif = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.designation
+
+    def save(self, *args, **kwargs):
+        try:
+            self.utilisateur
+        except:
+            self.utilisateur = User.objects.last()
+        super().save(*args, **kwargs)
+
+
+class Laboratoire(models.Model):
+
+    utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
+
+    designation = models.CharField(max_length=40, null=True)
+    adresse = models.CharField(max_length=40, null=True)
+    telephone = models.CharField(max_length=15, null=True)
+    ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
+    longitude = models.FloatField(max_length=40, null=True)
+    latitude = models.FloatField(max_length=40, null=True)
+    date_ajout = models.DateTimeField(auto_now_add=True)
+    date_modif = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.designation
+
+    def save(self, *args, **kwargs):
+        try:
+            self.utilisateur
+        except:
+            self.utilisateur = User.objects.last()
+        super().save(*args, **kwargs)
+
+
+class Pharmacie(models.Model):
+
+    utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
+
+    designation = models.CharField(max_length=40, null=True)
+    adresse = models.CharField(max_length=40, null=True)
+    telephone = models.CharField(max_length=15, null=True)
+    ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
+    longitude = models.FloatField(max_length=40, null=True)
+    latitude = models.FloatField(max_length=40, null=True)
+    date_ajout = models.DateTimeField(auto_now_add=True)
+    date_modif = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.designation
+
+    def save(self, *args, **kwargs):
+        try:
+            self.utilisateur
+        except:
+            self.utilisateur = User.objects.last()
+        super().save(*args, **kwargs)
+
+    
+class centreDeSoins(models.Model):
+
+    utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
+
+    designation = models.CharField(max_length=40, null=True)
+    adresse = models.CharField(max_length=40, null=True)
+    telephone = models.CharField(max_length=15, null=True)
+    ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
+    longitude = models.FloatField(max_length=40, null=True)
+    latitude = models.FloatField(max_length=40, null=True)
+    date_ajout = models.DateTimeField(auto_now_add=True)
+    date_modif = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.designation
+
+    def save(self, *args, **kwargs):
+        try:
+            self.utilisateur
+        except:
+            self.utilisateur = User.objects.last()
+        super().save(*args, **kwargs)
+
 
 class AgentAssurance(models.Model):
 
@@ -318,108 +422,20 @@ class Employe(models.Model):
     def __str__(self):
         return self.prenom + ' ' + self.nom
 
-class Assurance(models.Model):
+class policeAssurance(models.Model):
 
-    utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
+    agent_assurance = models.ForeignKey(AgentAssurance, on_delete=models.CASCADE)
 
-    agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
-
-    designation = models.CharField(max_length=40, null=True)
-    adresse = models.CharField(max_length=40, null=True)
-    telephone = models.CharField(max_length=15, null=True)
-    ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
-    longitude = models.FloatField(max_length=20, null=True)
-    latitude = models.FloatField(max_length=20, null=True)
+    numero = models.CharField(max_length=40)
+    taux = models.IntegerField()
+    datePriseEffet = models.DateField()
+    dateFin = models.DateField()
+    statutModification = models.BooleanField()
     date_ajout = models.DateTimeField(auto_now_add=True)
     date_modif = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.designation
-
-    def save(self, *args, **kwargs):
-        try:
-            self.utilisateur
-        except:
-            self.utilisateur = User.objects.last()
-        super().save(*args, **kwargs)
-
-
-class Laboratoire(models.Model):
-
-    utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
-
-    designation = models.CharField(max_length=40, null=True)
-    adresse = models.CharField(max_length=40, null=True)
-    telephone = models.CharField(max_length=15, null=True)
-    ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
-    longitude = models.FloatField(max_length=40, null=True)
-    latitude = models.FloatField(max_length=40, null=True)
-    date_ajout = models.DateTimeField(auto_now_add=True)
-    date_modif = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.designation
-
-    def save(self, *args, **kwargs):
-        try:
-            self.utilisateur
-        except:
-            self.utilisateur = User.objects.last()
-        super().save(*args, **kwargs)
-
-
-class Pharmacie(models.Model):
-
-    utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
-
-    designation = models.CharField(max_length=40, null=True)
-    adresse = models.CharField(max_length=40, null=True)
-    telephone = models.CharField(max_length=15, null=True)
-    ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
-    longitude = models.FloatField(max_length=40, null=True)
-    latitude = models.FloatField(max_length=40, null=True)
-    date_ajout = models.DateTimeField(auto_now_add=True)
-    date_modif = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.designation
-
-    def save(self, *args, **kwargs):
-        try:
-            self.utilisateur
-        except:
-            self.utilisateur = User.objects.last()
-        super().save(*args, **kwargs)
-
-    
-class centreDeSoins(models.Model):
-
-    utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
-
-    agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
-
-    designation = models.CharField(max_length=40, null=True)
-    adresse = models.CharField(max_length=40, null=True)
-    telephone = models.CharField(max_length=15, null=True)
-    ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
-    longitude = models.FloatField(max_length=40, null=True)
-    latitude = models.FloatField(max_length=40, null=True)
-    date_ajout = models.DateTimeField(auto_now_add=True)
-    date_modif = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.designation
-
-    def save(self, *args, **kwargs):
-        try:
-            self.utilisateur
-        except:
-            self.utilisateur = User.objects.last()
-        super().save(*args, **kwargs)
+        return self.numero
 
     
 class Souscripteur(models.Model):
@@ -488,20 +504,4 @@ class Assure(models.Model):
         except:
             self.utilisateur = User.objects.last()
         super().save(*args, **kwargs)
-
-class policeAssurance(models.Model):
-
-    agent_assurance = models.ForeignKey(AgentAssurance, on_delete=models.CASCADE)
-    souscripteur = models.ForeignKey(Souscripteur, on_delete=models.CASCADE)
-
-    numero = models.CharField(max_length=40)
-    taux = models.IntegerField()
-    datePriseEffet = models.DateField()
-    dateFin = models.DateField()
-    statutModification = models.BooleanField()
-    date_ajout = models.DateTimeField(auto_now_add=True)
-    date_modif = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.numero
 

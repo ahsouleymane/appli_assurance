@@ -264,14 +264,12 @@ class employeForm(forms.ModelForm):
             'genre': 'Genre',
         }
 
-class policeAssuranceForm(models.Model):
+class policeAssuranceForm(forms.ModelForm):
     class Meta:
         model = policeAssurance
-        fields = ['agent_assurance', 'souscripteur', 'numero', 'taux', 'datePriseEffet', 'dateFin',
-                'statutModification']
+        fields = ['agent_assurance', 'numero', 'taux', 'datePriseEffet', 'dateFin', 'statutModification']
         labels = {
             'agent_assurance': 'Agent assurance',
-            'souscripteur': 'Souscripteur',
             'numero': 'Numéro',
             'taux': 'Taux',
             'datePriseEffet': 'Date de prise d\'effet',

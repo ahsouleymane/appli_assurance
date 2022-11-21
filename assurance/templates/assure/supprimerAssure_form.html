@@ -1,0 +1,32 @@
+{% extends 'sancfis/main_agentsSancfis.html' %}
+
+{% block content %}
+
+<form action="{% url 'supprimer_assure' item.id %}" method="POST">
+
+    {% csrf_token %}
+
+    <br>
+    <br>
+
+    <div class="row">
+        <div class="container col-md-6 col-md-offset-3">
+            <div class="card card-body">
+
+                <strong><p>Etes vous sure de vouloir supprimer "{{item}}" ?</p></strong>
+
+                <div>
+
+                    <a class="btn btn-warning btn-sm" href="{% url 'assure_agent_assurance' %}">Cancel</a>
+
+                    <input class="btn btn-danger btn-sm" type="submit" name="confirm">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</form>
+
+{% endblock %}

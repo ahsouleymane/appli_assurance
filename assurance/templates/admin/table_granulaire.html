@@ -1,0 +1,887 @@
+{% extends 'admin/main_admin.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<br>
+
+<div class="row">
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form1.ville | as_crispy_field }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form1.pays | as_crispy_field }}
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Ville
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Prestation</th>
+                </tr>
+
+                {% for v in ville %}
+                    <tr>
+                        <td>{{ v.ville }}</td>
+                        <td>{{ v.pays }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_ville' v.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_ville' v.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form2.libellePrestation | as_crispy_field }}
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Prestation
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Prestation</th>
+                </tr>
+
+                {% for pr in prestation %}
+                    <tr>
+                        <td>{{ pr.libellePrestation }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_prestation' pr.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_prestation' pr.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form3.libelleExamen | as_crispy_field }}
+                            
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Examen
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Type Examen</th>
+                </tr>
+
+                {% for e in examen %}
+                    <tr>
+                        <td>{{ e.libelleExamen }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_examen' e.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_examen' e.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form4.libelleConsultation | as_crispy_field }}
+                            
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Consultation
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Type Consultation</th>
+                </tr>
+
+                {% for c in consultation %}
+                    <tr>
+                        <td>{{ c.libelleConsultation }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_consultation' c.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_consultation' c.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+
+</div>
+
+<br>
+
+<div class="row">
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form9.moment | as_crispy_field }}
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Moment
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Moment</th>
+                </tr>
+
+                {% for mt in moment %}
+                    <tr>
+                        <td>{{ mt.moment }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_moment' mt.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_moment' mt.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form10.periode | as_crispy_field }}
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Periode
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Periode</th>
+                </tr>
+
+                {% for pd in periode %}
+                    <tr>
+                        <td>{{ pd.periode }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_periode' pd.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_periode' pd.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form11.profession | as_crispy_field }}
+                            
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Profession
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Profession</th>
+                </tr>
+
+                {% for pf in profession %}
+                    <tr>
+                        <td>{{ pf.profession }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_profession' pf.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_profession' pf.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form12.masse | as_crispy_field }}
+                            
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Masse
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Masse</th>
+                </tr>
+
+                {% for ms in masse %}
+                    <tr>
+                        <td>{{ ms.masse }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_masse' ms.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_masse' ms.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<br>
+
+<div class="row">
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form14.unite | as_crispy_field }}
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Unite
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Unite de prise</th>
+                </tr>
+
+                {% for u in unite %}
+                    <tr>
+                        <td>{{ u.unite }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_unite' u.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_unite' u.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form15.frequence | as_crispy_field }}
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Frequence
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Frequence de prise</th>
+                </tr>
+
+                {% for fr in freq %}
+                    <tr>
+                        <td>{{ fr.freq }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_frequence' fr.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_frequence' fr.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form16.specialite | as_crispy_field }}
+                            
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Specialite
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Specialite Medecin</th>
+                </tr>
+
+                {% for s in specialite %}
+                    <tr>
+                        <td>{{ s.specialite }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_specialite' s.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_specialite' s.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form17.voie | as_crispy_field }}
+                            
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Voie
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Voie Administration</th>
+                </tr>
+
+                {% for va in voie %}
+                    <tr>
+                        <td>{{ va.voie }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_voie' va.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_voie' va.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<br>
+
+<div class="row">
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form5.libelleMedicament | as_crispy_field }}
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Medicament
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Medicament</th>
+                </tr>
+
+                {% for m in medicament %}
+                    <tr>
+                        <td>{{ m.libelleMedicament }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_med' m.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_med' m.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-2">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form6.taille | as_crispy_field }}
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Taille
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Taille</th>
+                </tr>
+
+                {% for t in taille %}
+                    <tr>
+                        <td>{{ t.taille }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_taille' t.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_taille' t.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-2">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form7.qte | as_crispy_field }}
+                            
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Quantite
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Quantite</th>
+                </tr>
+
+                {% for q in qte %}
+                    <tr>
+                        <td>{{ q.qte }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_quantite' q.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_quantite' q.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+    <div class="container col-md-2">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form13.nbr | as_crispy_field }}
+
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Nombre
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Nombre</th>
+                </tr>
+                {% for nb in nbr %}
+                    <tr>
+                        <td>{{ nb.nbr }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_nbr' nb.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_nbr' nb.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+
+    <div class="container col-md-3">
+        <hr>
+        <div class="card card-body">
+            <div class="card bg-dark text-white">
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                            
+                        {% csrf_token %}
+
+                        {{ form8.forme | as_crispy_field }}
+                            
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-12">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    Ajouter Forme
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+            <table class="table table-sm">
+                <tr>
+                    <th>Forme Medicament</th>
+                </tr>
+
+                {% for f in forme %}
+                    <tr>
+                        <td>{{ f.forme }}</td>
+                        <td>
+                            <div class="row">
+                                <a class="btn btn-outline-success btn-sm" href="{% url 'modifier_forme' f.id %}">Edit</a>
+                                &nbsp;
+                                <form action="{% url 'supprimer_forme' f.id %}" method="post">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Sup</button>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
