@@ -36,11 +36,10 @@
                     <th>Adresse</th>
                     <th>Téléphone</th>
                     <th>Ville</th>
+                    <th>Agent sancfis</th>
                     <th>Date Ajout</th>
                     <th></th>
                 </tr>
-
-                
 
                 {% for assurance in assurances %}
                     <tr>
@@ -48,6 +47,7 @@
                         <td>{{ assurance.adresse }}</dt>
                         <td>{{ assurance.telephone }}</dt>
                         <td>{{ assurance.ville }}</dt>
+                        <td>{{ assurance.agent_sancfis }}</dt>
                         <td>{{ assurance.date_ajout }}</dt>
                         <td><a class="btn btn-outline-warning btn-sm" href="">Désactiver</a></td>
                         <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_assurance' assurance.id %}">Modifier</a></td>

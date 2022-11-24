@@ -19,6 +19,27 @@ class adminSystemeForm(forms.ModelForm):
         model = AdminSysteme
         fields = ['nom', 'prenom', 'adresse', 'telephone', 'ville', 'pays','profession', 'genre'] 
 
+class agentSancfisForm(forms.ModelForm):
+    class Meta:
+        model = AgentSancfis
+        fields = ['admin', 'nom', 'prenom', 'adresse', 'ville', 'telephone', 'profession', 'genre']
+        labels = {
+            'admin': 'Admin',
+            'nom': 'Nom',
+            'prenom': 'Prénom',
+            'nom': 'Nom',
+            'prenom': 'Prénom',
+            'adresse': 'Adresse',
+            'ville': 'Ville',
+            'telephone': 'Téléphone',
+            'profession': 'Profession',
+            'genre': 'Genre'
+        }
+
+    def __init__(self, *args, **kwargs):
+            super(agentSancfisForm,self).__init__(*args, **kwargs)
+            self.fields['ville'].empty_label = "Choisir"
+
 class assureForm(forms.ModelForm):
     class Meta:
         model = Assure
@@ -125,26 +146,6 @@ class csForm(forms.ModelForm):
             super(csForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
             self.fields['agent_sancfis'].empty_label = "Choisir"
-
-class agentSancfisForm(forms.ModelForm):
-    class Meta:
-        model = AgentSancfis
-        fields = ['nom', 'prenom', 'adresse', 'ville', 'telephone', 'profession', 'genre']
-        labels = {
-            'nom': 'Nom',
-            'prenom': 'Prénom',
-            'nom': 'Nom',
-            'prenom': 'Prénom',
-            'adresse': 'Adresse',
-            'ville': 'Ville',
-            'telephone': 'Téléphone',
-            'profession': 'Profession',
-            'genre': 'Genre'
-        }
-
-    def __init__(self, *args, **kwargs):
-            super(agentSancfisForm,self).__init__(*args, **kwargs)
-            self.fields['ville'].empty_label = "Choisir"
 
 class agentAssuranceForm(forms.ModelForm):
     class Meta:

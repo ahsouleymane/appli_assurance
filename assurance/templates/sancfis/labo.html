@@ -36,11 +36,10 @@
                     <th>Adresse</th>
                     <th>Téléphone</th>
                     <th>Ville</th>
+                    <th>Agent sancfis</th>
                     <th>Date Ajout</th>
                     <th></th>
                 </tr>
-
-                
 
                 {% for laboratoire in laboratoires %}
                     <tr>
@@ -48,6 +47,7 @@
                         <td>{{ laboratoire.adresse }}</dt>
                         <td>{{ laboratoire.telephone }}</dt>
                         <td>{{ laboratoire.ville }}</dt>
+                        <td>{{ laboratoire.agent_sancfis }}</dt>
                         <td>{{ laboratoire.date_ajout }}</dt>
                         <td><a class="btn btn-outline-warning btn-sm" href="">Désactiver</a></td>
                         <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_laboratoire' laboratoire.id %}">Modifier</a></td>
@@ -98,11 +98,8 @@
                     <th>Téléphone</th>
                     <th>Profession</th>
                     <th>Ville</th>
-                    <th>Pays</th>
                     <th>Date Ajout</th>
                 </tr>
-
-                
 
                 {% for agent in agentlaboratoire %}
                     <tr>
@@ -112,7 +109,7 @@
                         <td>{{ agent.telephone }}</dt>
                         <td>{{ agent.profession }}</dt>
                         <td>{{ agent.ville }}</dt>
-                        <td>{{ agent.pays }}</dt>
+                        <td>{{ agent.laboratoire }}</dt>
                         <td>{{ agent.date_ajout }}</dt>
                     </tr>
                 {% endfor %}

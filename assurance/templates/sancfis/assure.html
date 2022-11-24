@@ -38,11 +38,11 @@
                     <th>Adresse</th>
                     <th>Téléphone</th>
                     <th>Profession</th>
+                    <th>Agent assurance</th>
+                    <th>Police assurance</th>
                     <th>Ville</th>
                     <th>Date Ajout</th>
                 </tr>
-
-                
 
                 {% for assure in assures %}
                     <tr>
@@ -52,6 +52,8 @@
                         <td>{{ assure.telephone }}</td>
                         <td>{{ assure.profession }}</td>
                         <td>{{ assure.ville }}</td>
+                        <td>{{ assure.agent_assurance }}</td>
+                        <td>{{ assure.police_assurance }}</td>
                         <td>{{ assure.date_ajout }}</td>
                         <td><a class="btn btn-outline-dark btn-sm" href="">Détails</a></td>
                     </tr>
