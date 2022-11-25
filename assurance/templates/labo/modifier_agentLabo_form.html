@@ -30,7 +30,7 @@
                         {{ form.telephone | as_crispy_field }}
                         {{ form.profession | as_crispy_field }}
                         {{ form.genre | as_crispy_field }}
-
+                        {{ form.laboratoire | as_crispy_field }}
 
                         <br>
 
@@ -60,6 +60,7 @@
     form_fields[4].placeholder = 'Téléphone.....';
     form_fields[5].placeholder = 'Profession.....';
     form_fields[6].placeholder = 'Genre.....';
+    form_fields[7].placeholder = 'Laboratoire.....';
 
     for (var field in form_fields){
         form_fields[field].className += ' form-control'

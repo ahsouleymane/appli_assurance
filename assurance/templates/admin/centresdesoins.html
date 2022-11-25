@@ -37,7 +37,7 @@
                     <th>Adresse</th>
                     <th>Téléphone</th>
                     <th>Ville</th>
-                    <th>Pays</th>
+                    <th>Agent sancfis</th>
                     <th>Date Ajout</th>
                 </tr>
 
@@ -49,7 +49,7 @@
                         <td>{{ cs.adresse }}</dt>
                         <td>{{ cs.telephone }}</dt>
                         <td>{{ cs.ville }}</dt>
-                        <td>{{ cs.pays }}</dt>
+                        <td>{{ cs.agent_sancfis }}</dt>
                         <td>{{ cs.date_ajout }}</dt>
                         <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_cs' cs.id %}">Modifier</a></td>
                         <td><a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer_cs' cs.id %}">Supprimer</a></td>
@@ -99,7 +99,7 @@
                     <th>Téléphone</th>
                     <th>Profession</th>
                     <th>Ville</th>
-                    <th>Pays</th>
+                    <th>Centre de soins</th>
                     <th>Date Ajout</th>
                 </tr>
                 
@@ -112,7 +112,7 @@
                         <td>{{ agent.telephone }}</dt>
                         <td>{{ agent.profession }}</dt>
                         <td>{{ agent.ville }}</dt>
-                        <td>{{ agent.pays }}</dt>
+                        <td>{{ agent.cs }}</dt>
                         <td>{{ agent.date_ajout }}</dt>
                         <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_agent_cs' agent.id %}">Modifier</a></td>
                         <td><a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer_agent_cs' agent.id %}">Supprimer</a></td>

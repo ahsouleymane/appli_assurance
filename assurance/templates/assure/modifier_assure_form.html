@@ -15,7 +15,7 @@
         <div class="card bg-secondary text-white">
             <div class="card card-header">
                 <div class="card-title" style="text-align: center; font-size: 25px;">
-                    Formulaire
+                    Formulaire Assuré
                 </div>
                 <div class="card-body">
 
@@ -37,7 +37,8 @@
                         {{ form.defautSante | as_crispy_field }}
                         {{ form.ayantDroit | as_crispy_field }}
                         {{ form.genre | as_crispy_field }}
-
+                        {{ form.agent_assurance | as_crispy_field }}
+                        {{ form.police_assurance | as_crispy_field }}
 
                         <br>
 
@@ -74,6 +75,8 @@
     form_fields[11].placeholder = 'Défaut de santé.....';
     form_fields[12].placeholder = 'Etat (Assuré ou Bénéficiaire).....';
     form_fields[13].placeholder = 'Genre.....';
+    form_fields[14].placeholder = 'Agent assurance.....';
+    form_fields[15].placeholder = 'Police assurance.....';
 
     for (var field in form_fields){
         form_fields[field].className += ' form-control'

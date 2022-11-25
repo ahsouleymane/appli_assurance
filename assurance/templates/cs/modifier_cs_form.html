@@ -29,7 +29,7 @@
                         {{ form.telephone | as_crispy_field }}
                         {{ form.longitude | as_crispy_field }}
                         {{ form.latitude | as_crispy_field }}
-
+                        {{ form.agent_sancfis | as_crispy_field }}
 
                         <br>
 
@@ -58,6 +58,7 @@
     form_fields[3].placeholder = 'Téléphone.....';
     form_fields[4].placeholder = 'Longitude.....';
     form_fields[5].placeholder = 'Latitude.....';
+    form_fields[6].placeholder = 'agent_sancfis.....';
 
     for (var field in form_fields){
         form_fields[field].className += ' form-control'

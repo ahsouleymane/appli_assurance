@@ -153,7 +153,7 @@ class AgentSancfis(models.Model):
 
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    admin = models.ForeignKey(AdminSysteme, on_delete=models.CASCADE)
+    admin = models.ForeignKey(AdminSysteme, null=True, on_delete=models.CASCADE)
 
     nom = models.CharField(max_length=40, null=True)
     prenom = models.CharField(max_length=40, null=True)

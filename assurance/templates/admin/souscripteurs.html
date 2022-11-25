@@ -37,11 +37,11 @@
                     <th>Adresse</th>
                     <th>Téléphone</th>
                     <th>Ville</th>
-                    <th>Pays</th>
+                    <th>Agent assurances</th>
+                    <th>Assurances</th>
+                    <th>Police assurance</th>
                     <th>Date Ajout</th>
                 </tr>
-
-                
 
                 {% for souscripteur in Souscripteurs %}
                     <tr>
@@ -49,7 +49,9 @@
                         <td>{{ souscripteur.adresse }}</dt>
                         <td>{{ souscripteur.telephone }}</dt>
                         <td>{{ souscripteur.ville }}</dt>
-                        <td>{{ souscripteur.pays }}</dt>
+                        <td>{{ souscripteur.agent_assurance }}</dt>
+                        <td>{{ souscripteur.assurance }}</dt>
+                        <td>{{ souscripteur.police_assurance }}</dt>
                         <td>{{ souscripteur.date_ajout }}</dt>
                         <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_agent_sancfis' agent.id %}">Modifier</a></td>
                         <td><a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer_agent_sancfis' agent.id %}">Supprimer</a></td>

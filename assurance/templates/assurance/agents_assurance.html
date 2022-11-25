@@ -39,10 +39,9 @@
                     <th>Téléphone</th>
                     <th>Profession</th>
                     <th>Ville</th>
+                    <th>Agent assurances</th>
                     <th>Date Ajout</th>
-                </tr>
-
-                
+                </tr>                
 
                 {% for assure in assures %}
                     <tr>
@@ -52,6 +51,7 @@
                         <td>{{ assure.telephone }}</td>
                         <td>{{ assure.profession }}</td>
                         <td>{{ assure.ville }}</td>
+                        <td>{{ assure.agent_assurance }}</td>
                         <td>{{ assure.date_ajout }}</td>
                         <td><a class="btn btn-outline-dark btn-sm" href="">Détails</a></td>
                         <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_agent_sancfis' assure.id %}">Modifier</a></td>
