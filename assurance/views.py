@@ -1328,7 +1328,7 @@ def creerAssurance(request):
             groupe = Group.objects.get(name='groupe_assurance')
             util.groups.add(groupe)
 
-            return redirect('/agent_sancfis/')
+            return redirect('/agents_sancfis/')
 
     context = {'form': form, 'form1': form1}
     return render(request, 'assurance/assurance_form.html', context)

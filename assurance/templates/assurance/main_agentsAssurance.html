@@ -12,21 +12,28 @@
 
 </head>
 <body>
-    {% include 'assurance/navbar_agentsAssurance.html' %}
 
-    <div class="container-fluid">
+    <div class="row">
 
-    {% block content %}
+        <div class="container-fluid col-md-2">
 
+            {% include 'assurance/navbar_agentsAssurance.html' %}
 
+        </div>
 
+        <div class="container-fluid col-md-10">
 
-    {% endblock %}
+            {% block content %}
+
+            {% endblock %}
+
+            <hr>
+            <h5>Our Footer</h5>
+
+        </div>
 
     </div>
 
-    <hr>
-    <h5>Our Footer</h5>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 

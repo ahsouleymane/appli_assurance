@@ -79,16 +79,16 @@
                     <th>Genre</th>
                 </tr>
 
-               
+              
 
                 {% for employe in employes %}
                     <tr>
-                        <td>{{ employe.nom }}</dt>
-                        <td>{{ employe.prenom }}</dt>
-                        <td>{{ employe.dateEmbauche }}</dt>
-                        <td>{{ employe.dateResiliation }}</dt>
-                        <td>{{ employe.statut }}</dt>
-                        <td>{{ employe.genre }}</dt>
+                        <td>{{ employe.nom }}</td>
+                        <td>{{ employe.prenom }}</td>
+                        <td>{{ employe.dateEmbauche }}</td>
+                        <td>{{ employe.dateResiliation }}</td>
+                        <td>{{ employe.statut }}</td>
+                        <td>{{ employe.genre }}</td>
                         <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_agent_sancfis' agent.id %}">Modifier</a></td>
                         <td><a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer_agent_sancfis' agent.id %}">Supprimer</a></td>
                     </tr>
@@ -97,8 +97,6 @@
             </table>
         </div>
     </div>
-
-</div>
 
 </div>
 
