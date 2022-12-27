@@ -39,7 +39,7 @@ def droits_utilisateur_type2(droit_agent_assurance=[]):
             if group in droit_agent_assurance:
                 return view_func(request, *args, **kwargs)
             else:
-                return redirect('agents_assurance')
+                return redirect('agent_assurance')
                 
         return wrapper_func
     return decorator
