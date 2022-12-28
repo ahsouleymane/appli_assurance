@@ -196,7 +196,7 @@ class AdminSysteme(models.Model):
     genre = models.CharField(max_length=10, choices=CHOIX, null=True)
     date_ajout = models.DateTimeField(auto_now_add=True)
     date_modif = models.DateTimeField(auto_now=True)
-    
+   
     def __str__(self):
         return self.prenom + ' ' + self.nom
 
@@ -211,7 +211,7 @@ class AgentSancfis(models.Model):
     adresse = models.CharField(max_length=40, null=True)
     ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
     telephone = models.CharField(max_length=20, null=True)
-    profession = models.CharField(max_length=40, null=True)
+    profession = models.ForeignKey(Profession, null=True, on_delete=models.SET_NULL)
     CHOIX = (
         ('MASCULIN', 'masculin'),
         ('FEMININ', 'feminin'),
@@ -345,7 +345,7 @@ class AgentAssurance(models.Model):
     adresse = models.CharField(max_length=40, null=True)
     ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
     telephone = models.CharField(max_length=15, null=True)
-    profession = models.CharField(max_length=40, null=True)
+    profession = models.ForeignKey(Profession, null=True, on_delete=models.SET_NULL)
     CHOIX = (
         ('MASCULIN', 'masculin'),
         ('FEMININ', 'feminin'),
@@ -376,7 +376,7 @@ class AgentLaboratoire(models.Model):
     adresse = models.CharField(max_length=40, null=True)
     ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
     telephone = models.CharField(max_length=15, null=True)
-    profession = models.CharField(max_length=40, null=True)
+    profession = models.ForeignKey(Profession, null=True, on_delete=models.SET_NULL)
     CHOIX = (
         ('MASCULIN', 'masculin'),
         ('FEMININ', 'feminin'),
@@ -406,7 +406,7 @@ class AgentPharmacie(models.Model):
     adresse = models.CharField(max_length=40, null=True)
     ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
     telephone = models.CharField(max_length=15, null=True)
-    profession = models.CharField(max_length=40, null=True)
+    profession = models.ForeignKey(Profession, null=True, on_delete=models.SET_NULL)
     CHOIX = (
         ('MASCULIN', 'masculin'),
         ('FEMININ', 'feminin'),
@@ -437,7 +437,7 @@ class AgentCs(models.Model):
     adresse = models.CharField(max_length=40, null=True)
     ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
     telephone = models.CharField(max_length=15, null=True)
-    profession = models.CharField(max_length=40, null=True)
+    profession = models.ForeignKey(Profession, null=True, on_delete=models.SET_NULL)
     CHOIX = (
         ('MASCULIN', 'masculin'),
         ('FEMININ', 'feminin'),
@@ -537,7 +537,7 @@ class Assure(models.Model):
     masse = models.FloatField(max_length=6, null=True)
     ville = models.ForeignKey(Ville, null=True, on_delete=models.SET_NULL)
     defautSante = models.CharField(max_length=40, null=True)
-    profession = models.CharField(max_length=40, null=True)  
+    profession = models.ForeignKey(Profession, null=True, on_delete=models.SET_NULL)  
     ayantDroit = models.BooleanField()    
     statut = models.BooleanField()
     CHOIX = (

@@ -49,6 +49,7 @@ class agentSancfisForm(forms.ModelForm):
             super(agentSancfisForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
             self.fields['admin'].empty_label = "Choisir"
+            self.fields['profession'].empty_label = "Choisir"
 
 class assureForm(forms.ModelForm):
     class Meta:
@@ -80,6 +81,7 @@ class assureForm(forms.ModelForm):
             self.fields['ville'].empty_label = "Choisir"
             self.fields['agent_assurance'].empty_label = "Choisir"
             self.fields['police_assurance'].empty_label = "Choisir"
+            self.fields['profession'].empty_label = "Choisir"
 
 class assuranceForm(forms.ModelForm):
     class Meta:
@@ -176,6 +178,7 @@ class agentAssuranceForm(forms.ModelForm):
             super(agentAssuranceForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
             self.fields['assurance'].empty_label = "Choisir"
+            self.fields['profession'].empty_label = "Choisir"
 
 class agentCsForm(forms.ModelForm):
     class Meta:
@@ -196,6 +199,7 @@ class agentCsForm(forms.ModelForm):
             super(agentCsForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
             self.fields['cs'].empty_label = "Choisir"
+            self.fields['profession'].empty_label = "Choisir"
 
 class agentLaboratoireForm(forms.ModelForm):
     class Meta:
@@ -216,6 +220,7 @@ class agentLaboratoireForm(forms.ModelForm):
             super(agentLaboratoireForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
             self.fields['laboratoire'].empty_label = "Choisir"
+            self.fields['profession'].empty_label = "Choisir"
 
 
 class agentPharmacieForm(forms.ModelForm):
@@ -237,6 +242,7 @@ class agentPharmacieForm(forms.ModelForm):
             super(agentPharmacieForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
             self.fields['pharmacie'].empty_label = "Choisir"
+            self.fields['profession'].empty_label = "Choisir"
 
 class souscripteurForm(forms.ModelForm):
     class Meta:
