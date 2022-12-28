@@ -70,7 +70,7 @@ class assureForm(forms.ModelForm):
             'defautSante': 'Defaut de Santé',
             'telephone': 'Téléphone',
             'profession': 'Profession',
-            'ayantDroit': '',
+            'ayantDroit': 'Ayant droit',
             'genre': 'Genre',
             'statut': 'Etat'
         }

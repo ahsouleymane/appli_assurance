@@ -18,8 +18,32 @@ urlpatterns = [
 
 
     #path('connecter/', views.connecter, name="connecter"),
+
+    ### Pages acceuilles de tout les types d'utilisateurs
+
+    path('assurance/', views.assurance_page, name="assurance"),
+
+    path('centre_soins/', views.centreSoins_page, name="centre_soins"),
+
+    path('pharmacie/', views.pharmacie_page, name="pharmacie"),
+
+    path('laboratoire/', views.laboratoire_page, name="laboratoire"),
+
+    path('assure/', views.assure_page, name="assure"),
+
+    path('souscripteur/', views.souscripteur_page, name="souscripteur"),
+
+    path('agent_assurance/', views.agentAssurance_page, name="agent_assurance"),
+
+    path('agent_cs/', views.agentCs_page, name="agent_cs"),
+
+    path('agent_pharmacie/', views.agentPharmacie_page, name="agent_pharmacie"),
+
+    path('agent_laboratoire/', views.agentLaboratoire_page, name="agent_laboratoire"),
+
+    path('employe/', views.employe_page, name="employe"),
     
-    ### URLS des Pages de redirections
+    ### URLS des Pages de redirections pour admin
 
     path('', views.acceuil, name="acceuil"),
     path('agents_sancfis_admin/', views.agentSancfis_page_admin, name="agent_sancfis_admin"),
@@ -29,6 +53,20 @@ urlpatterns = [
     path('laboratoire_admin/', views.laboratoire_page_admin, name="laboratoire_admin"),
     path('assure_admin/', views.assure_page_admin, name="assure_admin"),
     path('souscripteur_admin/', views.souscripteur_page_admin, name="souscripteur_admin"),
+
+    ### URLS des Pages de redirections pour sancfis
+
+    path('acceuil_sancfis/', views.acceuilSancfis, name="acceuil_sancfis"),
+    path('agents_sancfis/', views.agentSancfis_page, name="agent_sancfis"),
+    path('centre_soins_sancfis/', views.centreSoins_page_sancfis, name="centre_soins_sancfis"),
+    path('pharmacie_sancfis/', views.pharmacie_page_sancfis, name="pharmacie_sancfis"),
+    path('laboratoire_sancfis/', views.laboratoire_page_sancfis, name="laboratoire_sancfis"),
+    path('assure_sancfis/', views.assure_page_sancfis, name="assure_sancfis"),
+    path('souscripteur_sancfis/', views.souscripteur_page_sancfis, name="souscripteur_sancfis"),
+
+    ### URLS des Pages de redirections pour agents assurance
+
+    path('souscripteur_agent_assurance/', views.souscripteur_page_agentAssurance, name="souscripteur_agent_assurance"),
 
     # URLs de creation des tables granulaires
 
@@ -73,36 +111,6 @@ urlpatterns = [
     path('supprimer_frequence/<int:pk>/', views.supprimerFrequence, name="supprimer_frequence"),
     path('supprimer_specialite/<int:pk>/', views.supprimerSpecialite, name="supprimer_specialite"),
     path('supprimer_voie/<int:pk>/', views.supprimerVoieAdmin, name="supprimer_voie"),
-
-    path('acceuil_sancfis/', views.acceuilSancfis, name="acceuil_sancfis"),
-    path('agents_sancfis/', views.agentSancfis_page, name="agent_sancfis"),
-    path('centre_soins_sancfis/', views.centreSoins_page_sancfis, name="centre_soins_sancfis"),
-    path('pharmacie_sancfis/', views.pharmacie_page_sancfis, name="pharmacie_sancfis"),
-    path('laboratoire_sancfis/', views.laboratoire_page_sancfis, name="laboratoire_sancfis"),
-    path('assure_sancfis/', views.assure_page_sancfis, name="assure_sancfis"),
-    path('souscripteur_sancfis/', views.souscripteur_page_sancfis, name="souscripteur_sancfis"),
-
-    path('assurance/', views.assurance_page, name="assurance"),
-
-    path('centre_soins/', views.centreSoins_page, name="centre_soins"),
-
-    path('pharmacie/', views.pharmacie_page, name="pharmacie"),
-
-    path('laboratoire/', views.laboratoire_page, name="laboratoire"),
-
-    path('assure/', views.assure_page, name="assure"),
-
-    path('souscripteur/', views.souscripteur_page, name="souscripteur"),
-
-    path('agent_assurance/', views.agentAssurance_page, name="agent_assurance"),
-
-    path('agent_cs/', views.agentCs_page, name="agent_cs"),
-
-    path('agent_pharmacie/', views.agentPharmacie_page, name="agent_pharmacie"),
-
-    path('agent_laboratoire/', views.agentLaboratoire_page, name="agent_laboratoire"),
-
-    path('employe/', views.employe_page, name="employe"),
 
     ### URLS des Methodes
 

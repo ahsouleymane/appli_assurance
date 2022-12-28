@@ -1380,6 +1380,15 @@ def agentAssurance_page(request):
     context = {'assures': assures, 'utilisateur': utilisateur}
     return render(request, 'assurance/agents_assurance.html', context)
 
+@droits_utilisateur_type2(droit_agent_assurance=['groupe_agent_assurance'])
+def souscripteur_page_agentAssurance(request):
+
+    souscripteurs = Souscripteur.objects.all()
+    utilisateur = User.objects.filter(groups__name='groupe_souscripteur')
+    
+    context = {'souscripteurs': souscripteurs, 'utilisateur': utilisateur}
+    return render(request, 'assurance/souscripteurs.html', context)
+
 @droits_utilisateur_type6(droit_assurance=['groupe_assurance'])
 def creerAgentAssurance(request):
     
@@ -1400,7 +1409,7 @@ def creerAgentAssurance(request):
             groupe = Group.objects.get(name='groupe_agent_assurance')
             util.groups.add(groupe)
 
-            return redirect('/agent_assurance_assurance/')
+            return redirect('/assurance/')
 
     context = {'form': form, 'form1': form1}
     return render(request, 'assurance/agentAssurance_form.html', context)
@@ -1442,11 +1451,13 @@ def supprimerCompte_agentAssurance(request, pk):
 # LES VUES ASSURE
 
 @login_required(login_url='login')
+@droits_utilisateur_type7(droit_assure=['groupe_assure'])
 def assure_page(request):
     
     context = {}
     return render(request, 'assure/assure.html', context)
 
+@droits_utilisateur_type2(droit_agent_assurance=['groupe_agent_assurance'])
 def creerAssure(request):
     
     form = assureForm()
