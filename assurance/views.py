@@ -1243,14 +1243,21 @@ def creerAgentSancfis(request):
 
 
         if form.is_valid() and form1.is_valid():
-            user = form1.save()
-            
-            form.save()
+            account = form1.save(commit=False)
+           
+            user = form.save(commit=False)
 
-            email = form1.cleaned_data.get('email')
+            user.admin = request.AdminSysteme
+
+            if account.is_valid():
+                if user.is_valid():
+                    account.save()
+                    user.save()
 
             groupe = Group.objects.get(name='groupe_agent_sancfis')
-            user.groups.add(groupe)
+            account.groups.add(groupe)
+
+            email = form1.cleaned_data.get('email')
 
             return redirect('/')
 
@@ -1319,14 +1326,19 @@ def creerAssurance(request):
 
 
         if form.is_valid() and form1.is_valid():
-            util = form1.save()
-            
-            form.save()
+            account = form1.save(commit=False)
+           
+            user = form.save(commit=False)
 
-            email = form1.cleaned_data.get('email')
+            user.admin = request.AdminSysteme
+
+            if account.is_valid():
+                if user.is_valid():
+                    account.save()
+                    user.save()
 
             groupe = Group.objects.get(name='groupe_assurance')
-            util.groups.add(groupe)
+            account.groups.add(groupe)
 
             return redirect('/agents_sancfis/')
 
@@ -1400,14 +1412,19 @@ def creerAgentAssurance(request):
 
 
         if form.is_valid() and form1.is_valid():
-            util = form1.save()
-            
-            form.save()
+            account = form1.save(commit=False)
+           
+            user = form.save(commit=False)
 
-            email = form1.cleaned_data.get('email')
+            user.admin = request.AdminSysteme
+
+            if account.is_valid():
+                if user.is_valid():
+                    account.save()
+                    user.save()
 
             groupe = Group.objects.get(name='groupe_agent_assurance')
-            util.groups.add(groupe)
+            account.groups.add(groupe)
 
             return redirect('/assurance/')
 
@@ -1468,14 +1485,19 @@ def creerAssure(request):
 
 
         if form.is_valid() and form1.is_valid():
-            util = form1.save()
-            
-            form.save()
+            account = form1.save(commit=False)
+           
+            user = form.save(commit=False)
 
-            email = form1.cleaned_data.get('email')
+            user.admin = request.AdminSysteme
+
+            if account.is_valid():
+                if user.is_valid():
+                    account.save()
+                    user.save()
 
             groupe = Group.objects.get(name='groupe_assure')
-            util.groups.add(groupe)
+            account.groups.add(groupe)
 
             messages.success(request, 'Compte crée pour' + email)
 
@@ -1542,14 +1564,19 @@ def creerPharmacie(request):
 
 
         if form.is_valid() and form1.is_valid():
-            util = form1.save()
-            
-            form.save()
+            account = form1.save(commit=False)
+           
+            user = form.save(commit=False)
 
-            email = form1.cleaned_data.get('email')
+            user.admin = request.AdminSysteme
+
+            if account.is_valid():
+                if user.is_valid():
+                    account.save()
+                    user.save()
 
             groupe = Group.objects.get(name='groupe_pharmacie')
-            util.groups.add(groupe)
+            account.groups.add(groupe)
 
             messages.success(request, 'Compte crée pour' + email)
 
@@ -1615,14 +1642,19 @@ def creerAgentPharmacie(request):
 
 
         if form.is_valid() and form1.is_valid():
-            util = form1.save()
-            
-            form.save()
+            account = form1.save(commit=False)
+           
+            user = form.save(commit=False)
 
-            email = form1.cleaned_data.get('email')
+            user.admin = request.AdminSysteme
+
+            if account.is_valid():
+                if user.is_valid():
+                    account.save()
+                    user.save()
 
             groupe = Group.objects.get(name='groupe_agent_pharmacie')
-            util.groups.add(groupe)
+            account.groups.add(groupe)
 
             messages.success(request, 'Compte crée pour' + email)
 
@@ -1689,14 +1721,19 @@ def creerLaboratoire(request):
 
 
         if form.is_valid() and form1.is_valid():
-            util = form1.save()
-            
-            form.save()
+            account = form1.save(commit=False)
+           
+            user = form.save(commit=False)
 
-            email = form1.cleaned_data.get('email')
+            user.admin = request.AdminSysteme
+
+            if account.is_valid():
+                if user.is_valid():
+                    account.save()
+                    user.save()
 
             groupe = Group.objects.get(name='groupe_laboratoire')
-            util.groups.add(groupe)
+            account.groups.add(groupe)
 
             return redirect('/laboratoire_sancfis/')
 
@@ -1759,14 +1796,19 @@ def creerAgentLaboratoire(request):
 
 
         if form.is_valid() and form1.is_valid():
-            util = form1.save()
-            
-            form.save()
+            account = form1.save(commit=False)
+           
+            user = form.save(commit=False)
 
-            email = form1.cleaned_data.get('email')
+            user.admin = request.AdminSysteme
+
+            if account.is_valid():
+                if user.is_valid():
+                    account.save()
+                    user.save()
 
             groupe = Group.objects.get(name='groupe_agent_labo')
-            util.groups.add(groupe)
+            account.groups.add(groupe)
 
             return redirect('/agent_laboratoire_laboratoire/')
 
@@ -1831,14 +1873,19 @@ def creerCentreSoins(request):
 
 
         if form.is_valid() and form1.is_valid():
-            util = form1.save()
-            
-            form.save()
+            account = form1.save(commit=False)
+           
+            user = form.save(commit=False)
 
-            email = form1.cleaned_data.get('email')
+            user.admin = request.AdminSysteme
+
+            if account.is_valid():
+                if user.is_valid():
+                    account.save()
+                    user.save()
 
             groupe = Group.objects.get(name='groupe_cs')
-            util.groups.add(groupe)
+            account.groups.add(groupe)
 
             return redirect('/centre_soins_sancfis/')
 
@@ -1901,14 +1948,19 @@ def creerAgentCs(request):
 
 
         if form.is_valid() and form1.is_valid():
-            util = form1.save()
-            
-            form.save()
+            account = form1.save(commit=False)
+           
+            user = form.save(commit=False)
 
-            email = form1.cleaned_data.get('email')
+            user.admin = request.AdminSysteme
+
+            if account.is_valid():
+                if user.is_valid():
+                    account.save()
+                    user.save()
 
             groupe = Group.objects.get(name='groupe_agent_cs')
-            util.groups.add(groupe)
+            account.groups.add(groupe)
 
             return redirect('/agent_cs_centre_soins/')
 
@@ -1971,14 +2023,19 @@ def creerSouscripteur(request):
 
 
         if form.is_valid() and form1.is_valid():
-            util = form1.save()
-            
-            form.save()
+            account = form1.save(commit=False)
+           
+            user = form.save(commit=False)
 
-            email = form1.cleaned_data.get('email')
+            user.admin = request.AdminSysteme
+
+            if account.is_valid():
+                if user.is_valid():
+                    account.save()
+                    user.save()
 
             groupe = Group.objects.get(name='groupe_souscripteur')
-            util.groups.add(groupe)
+            account.groups.add(groupe)
 
             return redirect('/souscripteur_agent_assurance/')
 
