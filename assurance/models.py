@@ -204,7 +204,8 @@ class AgentSancfis(models.Model):
 
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    admin = models.ForeignKey(AdminSysteme, null=True, on_delete=models.CASCADE)
+    admin = models.CharField(max_length=40, null=True)
+    #admin = models.ForeignKey(AdminSysteme, null=True, on_delete=models.CASCADE)
 
     nom = models.CharField(max_length=40, null=True)
     prenom = models.CharField(max_length=40, null=True)
@@ -234,7 +235,8 @@ class Assurance(models.Model):
 
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
+    agent_sancfis = models.CharField(max_length=40, null=True)
+    #agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
 
     designation = models.CharField(max_length=40, null=True)
     adresse = models.CharField(max_length=40, null=True)
@@ -260,7 +262,8 @@ class Laboratoire(models.Model):
 
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
+    agent_sancfis = models.CharField(max_length=40, null=True)
+    #agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
 
     designation = models.CharField(max_length=40, null=True)
     adresse = models.CharField(max_length=40, null=True)
@@ -286,7 +289,8 @@ class Pharmacie(models.Model):
 
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
+    agent_sancfis = models.CharField(max_length=40, null=True)
+    #agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
 
     designation = models.CharField(max_length=40, null=True)
     adresse = models.CharField(max_length=40, null=True)
@@ -312,7 +316,8 @@ class centreDeSoins(models.Model):
 
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
+    agent_sancfis = models.CharField(max_length=40, null=True)
+    #agent_sancfis = models.ForeignKey(AgentSancfis, on_delete=models.CASCADE)
 
     designation = models.CharField(max_length=40, null=True)
     adresse = models.CharField(max_length=40, null=True)
@@ -338,7 +343,8 @@ class AgentAssurance(models.Model):
 
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    assurance = models.ForeignKey(Assurance, on_delete=models.CASCADE)
+    assurance = models.CharField(max_length=40, null=True)
+    #assurance = models.ForeignKey(Assurance, on_delete=models.CASCADE)
 
     nom = models.CharField(max_length=40, null=True)
     prenom = models.CharField(max_length=40, null=True)
@@ -369,7 +375,8 @@ class AgentLaboratoire(models.Model):
 
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    laboratoire = models.ForeignKey(Laboratoire, on_delete=models.CASCADE)
+    laboratoire = models.CharField(max_length=40, null=True)
+    #laboratoire = models.ForeignKey(Laboratoire, on_delete=models.CASCADE)
 
     nom = models.CharField(max_length=40, null=True)
     prenom = models.CharField(max_length=40, null=True)
@@ -399,7 +406,8 @@ class AgentPharmacie(models.Model):
 
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    pharmacie = models.ForeignKey(Pharmacie, on_delete=models.CASCADE)
+    pharmacie = models.CharField(max_length=40, null=True)
+    #pharmacie = models.ForeignKey(Pharmacie, on_delete=models.CASCADE)
 
     nom = models.CharField(max_length=40, null=True)
     prenom = models.CharField(max_length=40, null=True)
@@ -430,7 +438,8 @@ class AgentCs(models.Model):
 
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    cs = models.ForeignKey(centreDeSoins, on_delete=models.CASCADE)
+    cs = models.CharField(max_length=40, null=True)
+    #cs = models.ForeignKey(centreDeSoins, on_delete=models.CASCADE)
 
     nom = models.CharField(max_length=40, null=True)
     prenom = models.CharField(max_length=40, null=True)
@@ -477,7 +486,8 @@ class Employe(models.Model):
 
 class policeAssurance(models.Model):
 
-    agent_assurance = models.ForeignKey(AgentAssurance, on_delete=models.CASCADE)
+    agent_assurance = models.CharField(max_length=40, null=True)
+    #agent_assurance = models.ForeignKey(AgentAssurance, on_delete=models.CASCADE)
 
     numero = models.CharField(max_length=40)
     taux = models.IntegerField()
@@ -495,7 +505,8 @@ class Souscripteur(models.Model):
 
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
 
-    agent_assurance = models.ForeignKey(AgentAssurance, on_delete=models.CASCADE)
+    agent_assurance = models.CharField(max_length=40, null=True)
+    #agent_assurance = models.ForeignKey(AgentAssurance, on_delete=models.CASCADE)
     assurance = models.ForeignKey(Assurance, on_delete=models.CASCADE)
     police_assurance = models.ForeignKey(policeAssurance, on_delete=models.CASCADE)
 
@@ -523,7 +534,8 @@ class Assure(models.Model):
 
     utilisateur = models.OneToOneField(User, on_delete=models.CASCADE)
     
-    agent_assurance = models.ForeignKey(AgentAssurance, on_delete=models.CASCADE)
+    agent_assurance = models.CharField(max_length=40, null=True)
+    #agent_assurance = models.ForeignKey(AgentAssurance, on_delete=models.CASCADE)
     police_assurance = models.ForeignKey(policeAssurance, on_delete=models.CASCADE)
 
     nom = models.CharField(max_length=40, null=True)
