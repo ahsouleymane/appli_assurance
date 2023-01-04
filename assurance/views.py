@@ -1243,19 +1243,19 @@ def creerAgentSancfis(request):
 
 
         if form.is_valid() and form1.is_valid():
-            account = form1.save(commit=False)
+            account_instance = form1.save(commit=False)
            
-            user = form.save(commit=False)
+            user_instance = form.save(commit=False)
 
-            user.admin = request.AdminSysteme
+            user_instance.auteur = request.user
 
-            if account.is_valid():
-                if user.is_valid():
-                    account.save()
-                    user.save()
+            if account_instance is not None:
+                if user_instance is not None:
+                    account_instance.save()
+                    user_instance.save()
 
             groupe = Group.objects.get(name='groupe_agent_sancfis')
-            account.groups.add(groupe)
+            account_instance.groups.add(groupe)
 
             email = form1.cleaned_data.get('email')
 
