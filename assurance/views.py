@@ -1259,7 +1259,7 @@ def creerAgentSancfis(request):
 
             email = form1.cleaned_data.get('email')
 
-            return redirect('/')
+            return redirect('/agents_sancfis_admin/')
 
 
     context = {'form': form, 'form1': form1}
@@ -1276,7 +1276,7 @@ def modifierAgentSancfis(request, pk):
         form = agentSancfisForm(request.POST, instance=agentsancfis)
         if form.is_valid():
             form.save()
-            return redirect("/")
+            return redirect("/agents_sancfis_admin/")
 
     context = {'form': form}
     return render(request, 'sancfis/modifier_agentSancfis_form.html', context)
@@ -1326,19 +1326,19 @@ def creerAssurance(request):
 
 
         if form.is_valid() and form1.is_valid():
-            account = form1.save(commit=False)
+            account_instance = form1.save(commit=False)
            
-            user = form.save(commit=False)
+            user_instance = form.save(commit=False)
 
-            user.admin = request.AdminSysteme
+            user_instance.auteur = request.user
 
-            if account.is_valid():
-                if user.is_valid():
-                    account.save()
-                    user.save()
+            if account_instance is not None:
+                if user_instance is not None:
+                    account_instance.save()
+                    user_instance.save()
 
             groupe = Group.objects.get(name='groupe_assurance')
-            account.groups.add(groupe)
+            account_instance.groups.add(groupe)
 
             return redirect('/agents_sancfis/')
 
@@ -1412,19 +1412,19 @@ def creerAgentAssurance(request):
 
 
         if form.is_valid() and form1.is_valid():
-            account = form1.save(commit=False)
+            account_instance = form1.save(commit=False)
            
-            user = form.save(commit=False)
+            user_instance = form.save(commit=False)
 
-            user.admin = request.AdminSysteme
+            user_instance.auteur = request.user
 
-            if account.is_valid():
-                if user.is_valid():
-                    account.save()
-                    user.save()
+            if account_instance is not None:
+                if user_instance is not None:
+                    account_instance.save()
+                    user_instance.save()
 
             groupe = Group.objects.get(name='groupe_agent_assurance')
-            account.groups.add(groupe)
+            account_instance.groups.add(groupe)
 
             return redirect('/assurance/')
 
@@ -1485,19 +1485,19 @@ def creerAssure(request):
 
 
         if form.is_valid() and form1.is_valid():
-            account = form1.save(commit=False)
+            account_instance = form1.save(commit=False)
            
-            user = form.save(commit=False)
+            user_instance = form.save(commit=False)
 
-            user.admin = request.AdminSysteme
+            user_instance.auteur = request.user
 
-            if account.is_valid():
-                if user.is_valid():
-                    account.save()
-                    user.save()
+            if account_instance is not None:
+                if user_instance is not None:
+                    account_instance.save()
+                    user_instance.save()
 
             groupe = Group.objects.get(name='groupe_assure')
-            account.groups.add(groupe)
+            account_instance.groups.add(groupe)
 
             messages.success(request, 'Compte crée pour' + email)
 
@@ -1564,19 +1564,19 @@ def creerPharmacie(request):
 
 
         if form.is_valid() and form1.is_valid():
-            account = form1.save(commit=False)
+            account_instance = form1.save(commit=False)
            
-            user = form.save(commit=False)
+            user_instance = form.save(commit=False)
 
-            user.admin = request.AdminSysteme
+            user_instance.auteur = request.user
 
-            if account.is_valid():
-                if user.is_valid():
-                    account.save()
-                    user.save()
+            if account_instance is not None:
+                if user_instance is not None:
+                    account_instance.save()
+                    user_instance.save()
 
             groupe = Group.objects.get(name='groupe_pharmacie')
-            account.groups.add(groupe)
+            account_instance.groups.add(groupe)
 
             messages.success(request, 'Compte crée pour' + email)
 
@@ -1642,19 +1642,19 @@ def creerAgentPharmacie(request):
 
 
         if form.is_valid() and form1.is_valid():
-            account = form1.save(commit=False)
+            account_instance = form1.save(commit=False)
            
-            user = form.save(commit=False)
+            user_instance = form.save(commit=False)
 
-            user.admin = request.AdminSysteme
+            user_instance.auteur = request.user
 
-            if account.is_valid():
-                if user.is_valid():
-                    account.save()
-                    user.save()
+            if account_instance is not None:
+                if user_instance is not None:
+                    account_instance.save()
+                    user_instance.save()
 
             groupe = Group.objects.get(name='groupe_agent_pharmacie')
-            account.groups.add(groupe)
+            account_instance.groups.add(groupe)
 
             messages.success(request, 'Compte crée pour' + email)
 
@@ -1721,19 +1721,19 @@ def creerLaboratoire(request):
 
 
         if form.is_valid() and form1.is_valid():
-            account = form1.save(commit=False)
+            account_instance = form1.save(commit=False)
            
-            user = form.save(commit=False)
+            user_instance = form.save(commit=False)
 
-            user.admin = request.AdminSysteme
+            user_instance.auteur = request.user
 
-            if account.is_valid():
-                if user.is_valid():
-                    account.save()
-                    user.save()
+            if account_instance is not None:
+                if user_instance is not None:
+                    account_instance.save()
+                    user_instance.save()
 
             groupe = Group.objects.get(name='groupe_laboratoire')
-            account.groups.add(groupe)
+            account_instance.groups.add(groupe)
 
             return redirect('/laboratoire_sancfis/')
 
@@ -1796,19 +1796,19 @@ def creerAgentLaboratoire(request):
 
 
         if form.is_valid() and form1.is_valid():
-            account = form1.save(commit=False)
+            account_instance = form1.save(commit=False)
            
-            user = form.save(commit=False)
+            user_instance = form.save(commit=False)
 
-            user.admin = request.AdminSysteme
+            user_instance.auteur = request.user
 
-            if account.is_valid():
-                if user.is_valid():
-                    account.save()
-                    user.save()
+            if account_instance is not None:
+                if user_instance is not None:
+                    account_instance.save()
+                    user_instance.save()
 
             groupe = Group.objects.get(name='groupe_agent_labo')
-            account.groups.add(groupe)
+            account_instance.groups.add(groupe)
 
             return redirect('/agent_laboratoire_laboratoire/')
 
@@ -1873,19 +1873,19 @@ def creerCentreSoins(request):
 
 
         if form.is_valid() and form1.is_valid():
-            account = form1.save(commit=False)
+            account_instance = form1.save(commit=False)
            
-            user = form.save(commit=False)
+            user_instance = form.save(commit=False)
 
-            user.admin = request.AdminSysteme
+            user_instance.auteur = request.user
 
-            if account.is_valid():
-                if user.is_valid():
-                    account.save()
-                    user.save()
+            if account_instance is not None:
+                if user_instance is not None:
+                    account_instance.save()
+                    user_instance.save()
 
             groupe = Group.objects.get(name='groupe_cs')
-            account.groups.add(groupe)
+            account_instance.groups.add(groupe)
 
             return redirect('/centre_soins_sancfis/')
 
@@ -1948,19 +1948,19 @@ def creerAgentCs(request):
 
 
         if form.is_valid() and form1.is_valid():
-            account = form1.save(commit=False)
+            account_instance = form1.save(commit=False)
            
-            user = form.save(commit=False)
+            user_instance = form.save(commit=False)
 
-            user.admin = request.AdminSysteme
+            user_instance.auteur = request.user
 
-            if account.is_valid():
-                if user.is_valid():
-                    account.save()
-                    user.save()
+            if account_instance is not None:
+                if user_instance is not None:
+                    account_instance.save()
+                    user_instance.save()
 
             groupe = Group.objects.get(name='groupe_agent_cs')
-            account.groups.add(groupe)
+            account_instance.groups.add(groupe)
 
             return redirect('/agent_cs_centre_soins/')
 
@@ -2023,19 +2023,19 @@ def creerSouscripteur(request):
 
 
         if form.is_valid() and form1.is_valid():
-            account = form1.save(commit=False)
+            account_instance = form1.save(commit=False)
            
-            user = form.save(commit=False)
+            user_instance = form.save(commit=False)
 
-            user.admin = request.AdminSysteme
+            user_instance.auteur = request.user
 
-            if account.is_valid():
-                if user.is_valid():
-                    account.save()
-                    user.save()
+            if account_instance is not None:
+                if user_instance is not None:
+                    account_instance.save()
+                    user_instance.save()
 
             groupe = Group.objects.get(name='groupe_souscripteur')
-            account.groups.add(groupe)
+            account_instance.groups.add(groupe)
 
             return redirect('/souscripteur_agent_assurance/')
 

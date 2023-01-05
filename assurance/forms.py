@@ -52,10 +52,9 @@ class agentSancfisForm(forms.ModelForm):
 class assureForm(forms.ModelForm):
     class Meta:
         model = Assure
-        fields = ['agent_assurance', 'police_assurance', 'nom', 'prenom', 'numero', 'adresse', 'telephone', 'dateNaiss', 'lieuNaiss', 'taille', 
+        fields = ['police_assurance', 'nom', 'prenom', 'numero', 'adresse', 'telephone', 'dateNaiss', 'lieuNaiss', 'taille', 
                         'masse', 'ville', 'defautSante', 'profession', 'ayantDroit', 'genre', 'statut']
         labels = {
-            'agent_assurance': 'Agent assurance',
             'police_assurance': 'Police d\'assurance',
             'nom': 'Nom',
             'prenom': 'Prénom',
@@ -77,16 +76,14 @@ class assureForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
             super(assureForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
-            self.fields['agent_assurance'].empty_label = "Choisir"
             self.fields['police_assurance'].empty_label = "Choisir"
             self.fields['profession'].empty_label = "Choisir"
 
 class assuranceForm(forms.ModelForm):
     class Meta:
         model = Assurance
-        fields = ['agent_sancfis', 'designation', 'adresse', 'telephone', 'ville', 'longitude', 'latitude' ]
+        fields = ['designation', 'adresse', 'telephone', 'ville', 'longitude', 'latitude' ]
         labels = {
-            'agent_sancfis': 'Agent sancfis',
             'designation': 'Designation',
             'adresse': 'Adresse',
             'ville': 'Ville',
@@ -98,14 +95,12 @@ class assuranceForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
             super(assuranceForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
-            self.fields['agent_sancfis'].empty_label = "Choisir"
 
 class pharmacieForm(forms.ModelForm):
     class Meta:
         model = Pharmacie
-        fields = ['agent_sancfis', 'designation', 'adresse', 'telephone', 'ville', 'longitude', 'latitude' ]
+        fields = ['designation', 'adresse', 'telephone', 'ville', 'longitude', 'latitude' ]
         labels = {
-            'agent_sancfis': 'Agent sancfis',
             'designation': 'Designation',
             'adresse': 'Adresse',
             'ville': 'Ville',
@@ -117,14 +112,12 @@ class pharmacieForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
             super(pharmacieForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
-            self.fields['agent_sancfis'].empty_label = "Choisir"
 
 class laboratoireForm(forms.ModelForm):
     class Meta:
         model = Laboratoire
-        fields = ['agent_sancfis', 'designation', 'adresse', 'telephone', 'ville', 'longitude', 'latitude' ]
+        fields = ['designation', 'adresse', 'telephone', 'ville', 'longitude', 'latitude' ]
         labels = {
-            'agent_sancfis': 'Agent sancfis',
             'designation': 'Designation',
             'adresse': 'Adresse',
             'ville': 'Ville',
@@ -136,14 +129,12 @@ class laboratoireForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
             super(laboratoireForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
-            self.fields['agent_sancfis'].empty_label = "Choisir"
 
 class csForm(forms.ModelForm):
     class Meta:
         model = centreDeSoins
-        fields = ['agent_sancfis', 'designation', 'adresse', 'telephone', 'ville', 'longitude', 'latitude' ]
+        fields = ['designation', 'adresse', 'telephone', 'ville', 'longitude', 'latitude' ]
         labels = {
-            'agent_sancfis': 'Agent sancfis',
             'designation': 'Designation',
             'adresse': 'Adresse',
             'ville': 'Ville',
@@ -155,14 +146,12 @@ class csForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
             super(csForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
-            self.fields['agent_sancfis'].empty_label = "Choisir"
 
 class agentAssuranceForm(forms.ModelForm):
     class Meta:
         model = AgentAssurance
-        fields = ['assurance', 'nom', 'prenom', 'adresse', 'ville', 'telephone', 'profession', 'genre']
+        fields = ['nom', 'prenom', 'adresse', 'ville', 'telephone', 'profession', 'genre']
         labels = {
-            'assurance': 'Assurance',
             'nom': 'Nom',
             'prenom': 'Prénom',
             'adresse': 'Adresse',
@@ -175,15 +164,13 @@ class agentAssuranceForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
             super(agentAssuranceForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
-            self.fields['assurance'].empty_label = "Choisir"
             self.fields['profession'].empty_label = "Choisir"
 
 class agentCsForm(forms.ModelForm):
     class Meta:
         model = AgentCs
-        fields = ['cs', 'nom', 'prenom', 'adresse', 'ville', 'telephone', 'profession', 'genre']
+        fields = ['nom', 'prenom', 'adresse', 'ville', 'telephone', 'profession', 'genre']
         labels = {
-            'cs': 'Centre de soins',
             'nom': 'Nom',
             'prenom': 'Prénom',
             'adresse': 'Adresse',
@@ -196,15 +183,13 @@ class agentCsForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
             super(agentCsForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
-            self.fields['cs'].empty_label = "Choisir"
             self.fields['profession'].empty_label = "Choisir"
 
 class agentLaboratoireForm(forms.ModelForm):
     class Meta:
         model = AgentLaboratoire
-        fields = ['laboratoire', 'nom', 'prenom', 'adresse', 'ville', 'telephone', 'profession', 'genre']
+        fields = ['nom', 'prenom', 'adresse', 'ville', 'telephone', 'profession', 'genre']
         labels = {
-            'laboratoire': 'Laboratoire',
             'nom': 'Nom',
             'prenom': 'Prénom',
             'adresse': 'Adresse',
@@ -217,16 +202,14 @@ class agentLaboratoireForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
             super(agentLaboratoireForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
-            self.fields['laboratoire'].empty_label = "Choisir"
             self.fields['profession'].empty_label = "Choisir"
 
 
 class agentPharmacieForm(forms.ModelForm):
     class Meta:
         model = AgentPharmacie
-        fields = ['pharmacie', 'nom', 'prenom', 'adresse', 'ville', 'telephone', 'profession', 'genre']
+        fields = ['nom', 'prenom', 'adresse', 'ville', 'telephone', 'profession', 'genre']
         labels = {
-            'pharmacie': 'Pharmacie',
             'nom': 'Nom',
             'prenom': 'Prénom',
             'adresse': 'Adresse',
@@ -239,16 +222,14 @@ class agentPharmacieForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
             super(agentPharmacieForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
-            self.fields['pharmacie'].empty_label = "Choisir"
             self.fields['profession'].empty_label = "Choisir"
 
 class souscripteurForm(forms.ModelForm):
     class Meta:
         model = Souscripteur
-        fields = ['agent_assurance', 'assurance', 'police_assurance',
+        fields = ['assurance', 'police_assurance',
             'designation', 'adresse', 'telephone', 'ville', 'longitude', 'latitude' ]
         labels = {
-            'agent_assurance': 'Agent assurance',
             'assurance': 'Assurance',
             'police_assurance': 'Police assurance',
             'designation': 'Designation',
@@ -262,7 +243,6 @@ class souscripteurForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
             super(souscripteurForm,self).__init__(*args, **kwargs)
             self.fields['ville'].empty_label = "Choisir"
-            self.fields['agent_assurance'].empty_label = "Choisir"
             self.fields['assurance'].empty_label = "Choisir"
             self.fields['police_assurance'].empty_label = "Choisir"
 
@@ -282,9 +262,8 @@ class employeForm(forms.ModelForm):
 class policeAssuranceForm(forms.ModelForm):
     class Meta:
         model = policeAssurance
-        fields = ['agent_assurance', 'numero', 'taux', 'datePriseEffet', 'dateFin', 'statutModification']
+        fields = ['numero', 'taux', 'datePriseEffet', 'dateFin', 'statutModification']
         labels = {
-            'agent_assurance': 'Agent assurance',
             'numero': 'Numéro',
             'taux': 'Taux',
             'datePriseEffet': 'Date de prise d\'effet',
