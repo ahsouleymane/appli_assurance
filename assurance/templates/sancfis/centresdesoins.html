@@ -36,7 +36,6 @@
                     <th>Adresse</th>
                     <th>Téléphone</th>
                     <th>Ville</th>
-                    <th>Agent sancfis</th>
                     <th>Date Ajout</th>
                     <th></th>
                 </tr>      
@@ -47,7 +46,6 @@
                         <td>{{ cs.adresse }}</dt>
                         <td>{{ cs.telephone }}</dt>
                         <td>{{ cs.ville }}</dt>
-                        <td>{{ cs.agent_sancfis }}</dt>
                         <td>{{ cs.date_ajout }}</dt>
                         <td><a class="btn btn-outline-warning btn-sm" href="">Désactiver</a></td>
                         <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_cs' cs.id %}">Modifier</a></td>
@@ -98,7 +96,6 @@
                     <th>Téléphone</th>
                     <th>Profession</th>
                     <th>Ville</th>
-                    <th>Centre de soins</th>
                     <th>Date Ajout</th>
                 </tr>                
 
@@ -110,7 +107,6 @@
                         <td>{{ agent.telephone }}</dt>
                         <td>{{ agent.profession }}</dt>
                         <td>{{ agent.ville }}</dt>
-                        <td>{{ agent.cs }}</dt>
                         <td>{{ agent.date_ajout }}</dt>
                     </tr>
                 {% endfor %}

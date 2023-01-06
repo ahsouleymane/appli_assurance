@@ -39,7 +39,6 @@
                     <th>Téléphone</th>
                     <th>Profession</th>
                     <th>Ville</th>
-                    <th>Agent sancfis</th>
                     <th>Date Ajout</th>
                 </tr>
 
@@ -51,7 +50,6 @@
                         <td>{{ agent.telephone }}</td>
                         <td>{{ agent.profession }}</td>
                         <td>{{ agent.ville }}</td>
-                        <td>{{ agent.agent_assurance }}</td>
                         <td>{{ agent.date_ajout }}</td>
                         <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_agent_sancfis' agent.id %}">Modifier</a></td>
                         <td><a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer_agent_sancfis' agent.id %}">Supprimer</a></td>

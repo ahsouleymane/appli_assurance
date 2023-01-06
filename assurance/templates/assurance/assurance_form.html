@@ -33,7 +33,6 @@
                         {{ form.latitude | as_crispy_field }}
                         {{ form1.password1 | as_crispy_field }}
                         {{ form1.password2 | as_crispy_field }}
-                        {{ form.agent_sancfis | as_crispy_field }}
 
                         <br>
 
@@ -66,7 +65,6 @@
     form_fields[7].placeholder = 'Latitude.....';
     form_fields[8].placeholder = 'Mot de passe.....';
     form_fields[9].placeholder = 'Confirmer mot de passe.....';
-    form_fields[10].placeholder = 'Agent sancfis.....';
 
     for (var field in form_fields){
         form_fields[field].className += ' form-control'

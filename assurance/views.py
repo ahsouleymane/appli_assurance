@@ -55,10 +55,8 @@ def supprimerCompte(request, pk):
 @droits_admin
 @login_required(login_url='login')
 def acceuil(request):
-       
-    utilisateur = User.objects.filter(groups__name='admin')
-
-    context = {'utilisateur': utilisateur}
+    
+    context = {}
     return render(request, 'admin/acceuil.html', context)
 
 # Vues creation des tables granulaires
@@ -1152,9 +1150,7 @@ def souscripteur_page_admin(request):
 @login_required(login_url='login')
 def acceuilSancfis(request):
        
-    utilisateur = User.objects.filter(groups__name='groupe_agent_sancfis')
-
-    context = {'utilisateur': utilisateur}
+    context = {}
     return render(request, 'sancfis/acceuil.html', context)
 
 @droits_utilisateur_type1(droit_agent_sancfis=['groupe_agent_sancfis'])

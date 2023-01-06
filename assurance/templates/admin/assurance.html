@@ -39,7 +39,7 @@
                     <th>Téléphone</th>
                     <th>Profession</th>
                     <th>Ville</th>
-                    <th>Agent sancfis</th>
+                    <th>Auteur</th>
                     <th>Date Ajout</th>
                 </tr>
 
@@ -49,7 +49,7 @@
                         <td>{{ assurance.adresse }}</td>
                         <td>{{ assurance.telephone }}</td>
                         <td>{{ assurance.ville }}</td>
-                        <td>{{ assurance.agent_sancfis }}</td>
+                        <td>{{ assurance.auteur }}</td>
                         <td>{{ assurance.date_ajout }}</td>
                         <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_assurance' assurance.id %}">Modifier</a></td>
                         <td><a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer_assurance' assurance.id %}">Supprimer</a></td>
@@ -99,7 +99,7 @@
                     <th>Téléphone</th>
                     <th>Profession</th>
                     <th>Ville</th>
-                    <th>Assurance</th>
+                    <th>Auteur</th>
                     <th>Date Ajout</th>
                 </tr>
 
@@ -111,7 +111,7 @@
                         <td>{{ agent.telephone }}</td>
                         <td>{{ agent.profession }}</td>
                         <td>{{ agent.ville }}</td>
-                        <td>{{ agent.assurance }}</td>
+                        <td>{{ agent.auteur }}</td>
                         <td>{{ agent.date_ajout }}</td>
                         <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_agent_sancfis' agent.id %}">Modifier</a></td>
                         <td><a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer_agent_sancfis' agent.id %}">Supprimer</a></td>
