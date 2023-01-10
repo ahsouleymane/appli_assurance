@@ -271,6 +271,10 @@ class policeAssuranceForm(forms.ModelForm):
             'statutModification': 'Statut modification',
         }
 
+        def __init__(self, *args, **kwargs):
+            super(policeAssuranceForm,self).__init__(*args, **kwargs)
+            self.fields['taux'].empty_label = "Choisir"
+
 class ordonnanceForm(forms.ModelForm):
     class Meta: 
         model = Ordonnance
@@ -501,6 +505,14 @@ class uniteForm(forms.ModelForm):
         fields = '__all__'
         labels = {
             'unite': 'Unite de prise',
+        }
+
+class tauxForm(forms.ModelForm):
+    class Meta:
+        model = Taux_pa
+        fields = '__all__'
+        labels = {
+            'taux': 'Taux de la police d\'assurance',
         }
 
 class frequenceForm(forms.ModelForm):

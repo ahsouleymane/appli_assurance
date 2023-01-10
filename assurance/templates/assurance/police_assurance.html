@@ -1,0 +1,43 @@
+{% extends 'assurance/main_agentsAssurance.html' %}
+{% load static %}
+{% block content %}
+
+<br>
+
+<div class="row">
+
+    <div class="container col-md-8">
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-dark btn-sm btn-block" href="{% url 'creer_pa' %}">Ajouter Assuré</a>
+            <table class="table table-sm">
+                <tr>
+                    <th>Numéro Police Assurance</th>
+                    <th>Taux</th>
+                    <th>Date Prise Effet</th>
+                    <th>Date Expiration</th>
+                    <th>Statut</th>
+                    <th>Date Ajout</th>
+                </tr>                
+
+                {% for pa in police_assurance %}
+                    <tr>
+                        <td>{{ pa.numero }}</td>
+                        <td>{{ pa.taux }}</td>
+                        <td>{{ pa.datePriseEffet }}</td>
+                        <td>{{ pa.dateFin }}</td>
+                        <td>{{ pa.statutModification }}</td>
+                        <td>{{ pa.date_ajout }}</td>
+                        <td><a class="btn btn-outline-dark btn-sm" href="">Détails</a></td>
+                        <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_pa' pa.id %}">Modifier</a></td>
+                        <td><a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer_pa' pa.id %}">Supprimer</a></td>
+                    </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -2121,3 +2121,33 @@ def supprimerEmploye(request, pk):
     context = {'item': employe}
     return render(request, 'employe/supprimerAgentSancfis_form.html', context)
 
+# LES VUES POLICE ASSURANCE
+
+@login_required(login_url='login')
+@droits_utilisateur_type2(droit_agent_assurance=['groupe_agent_assurance'])
+def policeAssurance_page(request):
+
+    pa = policeAssurance.objects.all()
+    
+    context = {'police_assurance': pa}
+    return render(request, 'assurance/police_assurance.html', context)
+
+def creerPoliceAssurance(request):
+    
+    form = policeAssuranceForm()
+    if request.method == "POST":
+        form = agentCsForm(request.POST)
+
+
+        if form.is_valid() and form1.is_valid():           
+            user_instance = form.save(commit=False)
+
+            user_instance.auteur = request.user
+
+            if user_instance is not None:
+                user_instance.save()
+
+            return redirect('/police_assurance/')
+
+    context = {'form': form}
+    return render(request, 'assurance/police_assurance_form.html', context)

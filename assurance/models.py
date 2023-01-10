@@ -89,6 +89,12 @@ class Unite(models.Model):
     def __str__(self):
         return self.unite
 
+class Taux_pa(models.Model):
+    taux=models.IntegerField()
+
+    def __str__(self):
+        return self.taux
+
 class Frequence(models.Model):
     frequence=models.CharField(max_length=20)
 
@@ -480,7 +486,7 @@ class policeAssurance(models.Model):
     auteur = models.ForeignKey(User, related_name='auteur_who_created_police_assurance', null=True, on_delete=models.CASCADE)
 
     numero = models.CharField(max_length=40)
-    taux = models.IntegerField()
+    taux = models.ForeignKey(Taux_pa, null=True, on_delete=models.CASCADE)
     datePriseEffet = models.DateField()
     dateFin = models.DateField()
     statutModification = models.BooleanField()
