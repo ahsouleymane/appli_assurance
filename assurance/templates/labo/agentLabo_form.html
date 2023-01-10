@@ -11,8 +11,8 @@
 <br><br>
 
 <div class="row">
-    <div class="container col-md-6 col-md-offset-3">
-        <div class="card bg-success text-white">
+    <div class="container">
+        <div class="card bg-dark text-white">
             <div class="card card-header">
                 <div class="card-title" style="text-align: center; font-size: 25px;">
                     FORMULAIRE AGENT LABORATOIRE
@@ -22,18 +22,23 @@
                     <form action="" method="POST">
                         
                         {% csrf_token %}
-
-                        {{ form1.username | as_crispy_field }}
-                        {{ form.nom | as_crispy_field }}
-                        {{ form.prenom | as_crispy_field }}
-                        {{ form1.email | as_crispy_field }}
-                        {{ form.adresse | as_crispy_field }}
-                        {{ form.ville | as_crispy_field }}
-                        {{ form.telephone | as_crispy_field }}
-                        {{ form1.password1 | as_crispy_field }}
-                        {{ form1.password2 | as_crispy_field }}
-                        {{ form.profession | as_crispy_field }}
-                        {{ form.genre | as_crispy_field }}
+                        <div class="row">
+                            <div class="col-md-6">
+                                {{ form1.username | as_crispy_field }}
+                                {{ form.nom | as_crispy_field }}
+                                {{ form.prenom | as_crispy_field }}
+                                {{ form1.email | as_crispy_field }}
+                                {{ form.adresse | as_crispy_field }}
+                                {{ form.ville | as_crispy_field }}
+                            </div>
+                            <div class="col-md-6">
+                                {{ form.telephone | as_crispy_field }}
+                                {{ form1.password1 | as_crispy_field }}
+                                {{ form1.password2 | as_crispy_field }}
+                                {{ form.profession | as_crispy_field }}
+                                {{ form.genre | as_crispy_field }}
+                            </div>
+                        </div>
 
                         <br>
 

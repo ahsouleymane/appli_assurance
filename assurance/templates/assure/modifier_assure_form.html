@@ -11,8 +11,8 @@
 <br><br>
 
 <div class="row">
-    <div class="container col-md-6 col-md-offset-3">
-        <div class="card bg-secondary text-white">
+    <div class="container col-md-12">
+        <div class="card bg-dark text-white">
             <div class="card card-header">
                 <div class="card-title" style="text-align: center; font-size: 25px;">
                     Formulaire Assuré
@@ -23,21 +23,29 @@
                         
                         {% csrf_token %}
 
-                        {{ form.numero | as_crispy_field }}
-                        {{ form.nom | as_crispy_field }}
-                        {{ form.prenom | as_crispy_field }}
-                        {{ form.dateNaiss | as_crispy_field }}
-                        {{ form.lieuNaiss | as_crispy_field }}
-                        {{ form.adresse | as_crispy_field }}
-                        {{ form.ville | as_crispy_field }}
-                        {{ form.telephone | as_crispy_field }}
-                        {{ form.profession | as_crispy_field }}
-                        {{ form.taille | as_crispy_field }}
-                        {{ form.masse | as_crispy_field }}
-                        {{ form.defautSante | as_crispy_field }}
-                        {{ form.ayantDroit | as_crispy_field }}
-                        {{ form.genre | as_crispy_field }}
-                        {{ form.police_assurance | as_crispy_field }}
+                        <div class="row">
+                            <div class="col-md-4">
+                                {{ form.numero | as_crispy_field }}
+                                {{ form.nom | as_crispy_field }}
+                                {{ form.prenom | as_crispy_field }}
+                                {{ form.dateNaiss | as_crispy_field }}
+                                {{ form.lieuNaiss | as_crispy_field }}
+                            </div>
+                            <div class="col-md-4">
+                                {{ form.adresse | as_crispy_field }}
+                                {{ form.ville | as_crispy_field }}
+                                {{ form.telephone | as_crispy_field }}
+                                {{ form.profession | as_crispy_field }}
+                                {{ form.taille | as_crispy_field }}
+                            </div>
+                            <div class="col-md-4">
+                                {{ form.masse | as_crispy_field }}
+                                {{ form.defautSante | as_crispy_field }}
+                                {{ form.ayantDroit | as_crispy_field }}
+                                {{ form.genre | as_crispy_field }}
+                                {{ form.police_assurance | as_crispy_field }}
+                            </div>
+                        </div>
 
                         <br>
 
