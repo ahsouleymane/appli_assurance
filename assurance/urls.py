@@ -67,6 +67,7 @@ urlpatterns = [
     ### URLS des Pages de redirections pour agents assurance
 
     path('souscripteur_agent_assurance/', views.souscripteur_page_agentAssurance, name="souscripteur_agent_assurance"),
+    path('policeAssurance_agent_assurance/', views.policeAssurance_page, name="policeAssurance_agent_assurance"),
 
     # URLs de creation des tables granulaires
 
@@ -185,6 +186,12 @@ urlpatterns = [
     path('creer_employe/', views.creerEmploye, name="creer_employe"),
     path('modifier_employe/<int:pk>/', views.supprimerEmploye, name="modifier_employe"),
     path('supprimer_employe/<int:pk>/', views.supprimerEmploye, name="supprimer_employe"),
+
+    # POLICE ASSURANCE
+
+    path('creer_police_assurance/', views.creerPoliceAssurance, name="creer_police_assurance"),
+    path('modifier_police_assurance/', views.modifierPoliceAssurance, name="modifier_police_assurance"),
+    path('supprimer_police_assurance/', views.supprimerPoliceAssurance, name="supprimer_police_assurance"),
 ]
 
 

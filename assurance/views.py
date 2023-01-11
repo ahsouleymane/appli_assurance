@@ -2136,10 +2136,10 @@ def creerPoliceAssurance(request):
     
     form = policeAssuranceForm()
     if request.method == "POST":
-        form = agentCsForm(request.POST)
+        form = policeAssuranceForm(request.POST)
 
 
-        if form.is_valid() and form1.is_valid():           
+        if form.is_valid():           
             user_instance = form.save(commit=False)
 
             user_instance.auteur = request.user
@@ -2147,7 +2147,33 @@ def creerPoliceAssurance(request):
             if user_instance is not None:
                 user_instance.save()
 
-            return redirect('/police_assurance/')
+            return redirect('/policeAssurance_agent_assurance/')
 
     context = {'form': form}
     return render(request, 'assurance/police_assurance_form.html', context)
+
+def modifierPoliceAssurance(request, pk):
+    
+    police_assurance = policeAssurance.objects.get(id=pk)
+    form = policeAssuranceForm(instance=police_assurance)
+    if request.method == "POST":
+        form = policeAssuranceForm(request.POST, instance=police_assurance)
+
+
+        if form.is_valid():            
+            form.save()
+
+            return redirect('/policeAssurance_agent_assurance/')
+
+    context = {'form': form}
+    return render(request, 'assurance/modifier_police_assurance_form.html', context)
+
+def supprimerPoliceAssurance(request, pk):
+
+    police_assurance = policeAssurance.objects.get(id=pk)
+    if request.method == "POST":
+        police_assurance.delete()
+        return redirect('/policeAssurance_agent_assurance/')
+
+    context = {'item': police_assurance}
+    return render(request, 'assurance/supprimer_police_assurance_form.html', context)

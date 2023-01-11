@@ -264,10 +264,10 @@ class policeAssuranceForm(forms.ModelForm):
         model = policeAssurance
         fields = ['numero', 'taux', 'datePriseEffet', 'dateFin', 'statutModification']
         labels = {
-            'numero': 'Numéro',
-            'taux': 'Taux',
+            'numero': 'Numéro Police Assurance',
+            'taux': 'Taux Police Assurance',
             'datePriseEffet': 'Date de prise d\'effet',
-            'dateFin': 'Date fin',
+            'dateFin': 'Date Expiration',
             'statutModification': 'Statut modification',
         }
 

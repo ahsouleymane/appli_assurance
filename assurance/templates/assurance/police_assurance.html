@@ -9,7 +9,7 @@
     <div class="container col-md-8">
         <hr>
         <div class="card card-body">
-            <a class="btn btn-dark btn-sm btn-block" href="{% url 'creer_pa' %}">Ajouter Assuré</a>
+            <a class="btn btn-dark btn-sm btn-block" href="{% url 'creer_police_assurance' %}">Ajouter Police Assurance</a>
             <table class="table table-sm">
                 <tr>
                     <th>Numéro Police Assurance</th>
@@ -29,8 +29,8 @@
                         <td>{{ pa.statutModification }}</td>
                         <td>{{ pa.date_ajout }}</td>
                         <td><a class="btn btn-outline-dark btn-sm" href="">Détails</a></td>
-                        <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_pa' pa.id %}">Modifier</a></td>
-                        <td><a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer_pa' pa.id %}">Supprimer</a></td>
+                        <td><a class="btn btn-outline-success btn-sm" href="{% url 'modifier_police_assurance' pa.id %}">Modifier</a></td>
+                        <td><a class="btn btn-outline-danger btn-sm" href="{% url 'supprimer_police_assurance' pa.id %}">Supprimer</a></td>
                     </tr>
                 {% endfor %}
 

@@ -1,0 +1,70 @@
+{% extends 'assurance/main_agentsAssurance.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<!DOCTYPE html>
+<header>
+
+</header>
+<body>
+
+<br><br>
+
+<div class="row">
+    <div class="container col-md-10">
+        <div class="card bg-dark text-white">
+            <div class="card card-header">
+                <div class="card-title" style="text-align: center; font-size: 25px;">
+                    FORMULAIRE POLICE ASSURANCE
+                </div>
+                <div class="card-body">
+
+                    <form action="" method="POST">
+                        
+                        {% csrf_token %}
+
+                        {{ form.numero | as_crispy_field }}
+                        {{ form.taux | as_crispy_field }}
+                        {{ form.datePriseEffet | as_crispy_field }}
+                        {{ form.dateFin | as_crispy_field }}
+                        {{ form.statutModification | as_crispy_field }}
+                            
+                        <br>
+
+                        <div class="row">
+                            <div class="col-md-8">
+                                <button class="btn btn-light btn-block" type="submit" name="submit">
+                                    valider formulaire
+                                </button>
+                            </div>
+                            <div class="col-md-4">
+                                <a class="btn btn-danger btn-block" href="{% url 'policeAssurance_agent_assurance' %}">Annuler</a>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    var form_fields = document.getElementsByTagName('input')
+    form_fields[1].placeholder = 'Numéro Police Assurance.....';
+    form_fields[2].placeholder = 'Taux Police Assurance.....';
+    form_fields[3].placeholder = 'Date de prise d\'effet.....';
+    form_fields[4].placeholder = 'Date d\'expiration.....';
+    form_fields[5].placeholder = 'Statut modification.....';
+    
+
+    for (var field in form_fields){
+        form_fields[field].className += ' form-control'
+    }
+
+</script>
+
+</body>
+</html>
+
+{% endblock %}
